@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       videos: [],
-      currentVideo: null
+      video: null
     };
 
     this.getYouTubeVideos = this.getYouTubeVideos.bind(this);
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   handleVideoListEntryTitleClick(video) {
-    this.setState({currentVideo: video});
+    this.setState({ video: video });
   }
 
   getYouTubeVideos(query) {
@@ -32,7 +32,7 @@ class App extends React.Component {
     this.props.searchYouTube(options, (videos) =>
       this.setState({
         videos: videos,
-        currentVideo: videos[0]
+        video: videos[0]
       })
     );
   }
@@ -44,12 +44,12 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
-            <Search getYouTubeVideos={this.getYouTubeVideos}/>
+            <Search getYouTubeVideos={this.getYouTubeVideos} />
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={this.state.currentVideo}/>
+            <VideoPlayer video={this.state.video} />
           </div>
           <div className="col-md-5">
             <VideoList
