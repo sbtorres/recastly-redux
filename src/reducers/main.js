@@ -3,9 +3,12 @@ import currentVideoReducer from './currentVideo.js';
 import videoListReducer from './videoList.js';
 // Changed currentVideo and videoList to currentVideoReducer and videoListReducer
 
-var rootReducer = () => {
-  combineReducers({ currentVideoReducer, videoListReducer });
-};
+var rootReducer = combineReducers({ currentVideo: currentVideoReducer, videoList: videoListReducer });
+
+
+// var rootReducer = () => {
+//   combineReducers({ currentVideoReducer, videoListReducer });
+// };
 
 //HINT: you'll need to combine the other two reducers in this
 //  app into a single reducer using the 'combineReducers' method
